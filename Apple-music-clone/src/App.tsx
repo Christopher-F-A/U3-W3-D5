@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Section from "./components/Section";
+import MusicCard from "./components/MusicCard";
+import RadioCard from "./components/RadioCard";
+import { DeezerTrack, DeezerResponse } from "./types/deezer";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [tracks, setTracks] = useState<DeezerTrack[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const fetchMusic = async () => {
+    try {
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=aphextwin");
+      const data: DeezerResponse = await response.json();
+      setTracks(data.data.slice(0, 12));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMusic();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container-fluid bg-black text-light min-vh-100">
+      <Header />
 
-export default App
+      <div className="row">
+        <Sidebar />
+
+        <main className="col-12 col-md-10 p-4">
+          <h2 className="mb-4">Novità</h2>
+
+          <div className="row">
+            <RadioCard image="./assets/images/1a.png" title="Ascolta Apple Music Chill" subtitle="NUOVA STAZIONE RADIO" />
+            <RadioCard image="./assets/images/2a.png" title="Ecco la nuova casa della musica latina" subtitle="NUOVA STAZIONE RADIO" />
+          </div>
+
+          <Section title="Nuove uscite">
+            <div className="row">{loading ? <p>Caricamento...</p> : tracks.map((track) => <MusicCard key={track.id} track={track} />)}</div>
+          </Section>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default App;
