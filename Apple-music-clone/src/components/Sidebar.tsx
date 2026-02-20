@@ -1,11 +1,15 @@
 const Sidebar = () => {
   return (
-    <aside className="d-none d-md-block col-md-2 bg-dark text-light p-3 vh-100">
-      <ul className="nav flex-column gap-2">
-        <li className="nav-item">Home</li>
-        <li className="nav-item">Novità</li>
-        <li className="nav-item">Radio</li>
-      </ul>
+    <aside className="col-md-2 d-none d-md-block sidebar">
+      <div className="p-3">
+        <input type="text" placeholder="Cerca" className="form-control form-control-sm mb-4" />
+
+        <ul className="nav flex-column gap-3">
+          <li className="nav-item active">Home</li>
+          <li className="nav-item text-danger">Novità</li>
+          <li className="nav-item">Radio</li>
+        </ul>
+      </div>
     </aside>
   );
 };

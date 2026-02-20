@@ -1,21 +1,23 @@
 interface Props {
-  image: string
-  title: string
-  subtitle: string
+  image: string;
+  title: string;
+  subtitle: string;
 }
 
 const RadioCard = ({ image, title, subtitle }: Props) => {
   return (
-    <div className="col-12 col-md-6 mb-3">
-      <div className="position-relative">
-        <img src={image} className="img-fluid rounded" alt={title} />
-        <div className="position-absolute bottom-0 start-0 p-3 text-white">
-          <small>{subtitle}</small>
-          <h5>{title}</h5>
+    <div className="col-12 col-md-6 px-4">
+      <div className="radio-card-container">
+        <div className="radio-text-top">
+          <span className="subtitle text-uppercase">{subtitle}</span>
+          <p className="title">{title}</p>
+        </div>
+        <div className="radio-card-img-wrapper">
+          <img src={image} alt={title} className="img-fluid" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RadioCard
+export default RadioCard;

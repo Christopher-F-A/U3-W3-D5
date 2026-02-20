@@ -1,13 +1,126 @@
 body {
   background-color: #000;
-  color: white;
+  color: #fff;
+  font-family: -apple-system, system-ui, sans-serif;
 }
 
-.card img {
-  border-radius: 10px;
+/* Sidebar Apple Style */
+.sidebar {
+  background-color: #1a1a1a;
+  padding-top: 2rem;
 }
 
-h2,
-h5 {
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar .nav-item.active {
+  background-color: #333;
+}
+
+.sidebar .nav-item i {
+  color: #fa233b; /* Rosso Apple */
+  margin-right: 10px;
+}
+
+/* Radio Cards */
+.radio-card-container {
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 0.7rem;
   font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.radio-card-container .title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.radio-card-img-wrapper img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Music Cards */
+.music-title {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.music-artist {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Sezione Altro da esplorare (Grid) */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.explore-item {
+  background: #1a1a1a;
+  color: #fa233b;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.footer-container {
+  background-color: #242424;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 11px; /* Font molto piccolo tipico di Apple */
+  color: #888;
+}
+
+.footer-languages {
+  font-size: 12px;
+}
+
+.footer-links a {
+  color: #888;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links .divider {
+  color: #444;
+}
+
+/* Nasconde i divider su mobile per permettere il wrap pulito */
+@media (max-width: 768px) {
+  .footer-links .divider {
+    display: none;
+  }
+  .footer-links a {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
