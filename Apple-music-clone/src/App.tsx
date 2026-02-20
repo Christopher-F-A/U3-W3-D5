@@ -5,6 +5,7 @@ import Section from "./components/Section";
 import MusicCard from "./components/MusicCard";
 import RadioCard from "./components/RadioCard";
 import { DeezerTrack, DeezerResponse } from "./types/deezer";
+import RadioEpisodeCard from "./components/RadioEpisodeCard";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -48,6 +49,17 @@ const App = () => {
               <RadioCard image="/src/assets/images/1b.png" title="Ecco la nuova casa della musica latina" subtitle="NUOVA STAZIONE RADIO" />
             </div>
 
+            {/* NUOVI EPISODI RADIO */}
+            <Section title="Nuovi episodi radio >">
+              <div className="row g-3 flex-nowrap overflow-auto pb-3 no-scrollbar">
+                <RadioEpisodeCard image="/src/assets/images/2a.png" showTitle="Prólogo con Abuelo" title="Con Relis" />
+                <RadioEpisodeCard image="/src/assets/images/2b.png" showTitle="The Wanderer" title="The Wanderer" />
+                <RadioEpisodeCard image="/src/assets/images/2c.png" showTitle="Michael Bublé & Carly Pearce" title="Zane Lowe" />
+                <RadioEpisodeCard image="/src/assets/images/2d.png" showTitle="Stephan Moccio" title="The Zane Lowe Interview" />
+                <RadioEpisodeCard image="/src/assets/images/2e.png" showTitle="Chart Spotlight" title="Julia Michaels" />
+              </div>
+            </Section>
+
             {/* NUOVE USCITE */}
             <Section title="Nuove uscite >">
               <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4 ">
@@ -58,7 +70,17 @@ const App = () => {
             {/* ALTRO DA ESPLORARE */}
             <Section title="Altro da esplorare">
               <div className="explore-grid ">
-                {["Esplora per genere", "Worldwide", "Video musicali", "Decenni", "Classifiche", "Nuovi artisti"].map((item) => (
+                {[
+                  "Esplora per genere",
+                  "Worldwide",
+                  "Video musicali",
+                  "Decenni",
+                  "Classifiche",
+                  "Nuovi artisti",
+                  "Attività e stati d'animo",
+                  "Audio spaziale",
+                  "Hit del passato",
+                ].map((item) => (
                   <div key={item} className="explore-item">
                     {item} <i className="bi bi-chevron-right small"></i>
                   </div>

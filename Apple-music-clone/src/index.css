@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  background-color: #141414;
   color: #fff;
   font-family: -apple-system, system-ui, sans-serif;
 }
@@ -13,9 +13,6 @@ body {
 .sidebar .nav-item {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-bottom: 4px;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -123,4 +120,115 @@ body {
     width: 100%;
     margin-bottom: 5px;
   }
+}
+@media (min-width: 1200px) {
+  .col-lg-2-custom {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+.episode-card {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.episode-card:hover {
+  opacity: 0.8;
+}
+
+.episode-img-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.episode-logo {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.episode-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  border-radius: 0 0 10px 10px;
+}
+
+.episode-show {
+  font-size: 0.75rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.episode-title {
+  font-size: 0.7rem;
+  color: #ccc;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #1a1a1a; /* Grigio molto scuro quasi nero */
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* Stile Barra di ricerca */
+.search-container .input-group-text,
+.search-container .form-control {
+  background-color: #323232 !important;
+  color: #a1a1a1 !important;
+  border-radius: 6px;
+}
+
+.search-container .form-control::placeholder {
+  color: #a1a1a1;
+}
+
+/* Links Navigazione */
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  padding-right: 65%;
+  padding-left: 3%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 200;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.nav-link-custom i {
+  margin-right: 12px;
+  font-size: 1.1rem;
+  color: #fa233b; /* Rosso Apple */
+}
+
+/* Stato attivo (Novità) */
+.nav-link-custom.active {
+  background-color: #323232;
+}
+
+.nav-link-custom:hover:not(.active) {
+  background-color: #252525;
+}
+
+/* Correzione per icone Bootstrap */
+.bi-grid-fill,
+.bi-house-door-fill,
+.bi-broadcast {
+  font-size: 1.2rem;
 }
